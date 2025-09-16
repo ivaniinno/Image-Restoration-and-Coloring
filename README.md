@@ -18,7 +18,7 @@ Magic Photo is a project with user-friendly application designed to enhance and 
 ---
 ## Credentials
 **Team Members**: \
-Maxim Ilin (B23-DS-01),  
+Maksim Ilin (B23-DS-01),  
 Rail Sabirov (B23-DS-01),  
 Ivan Ilyichev (B23-DS-01)  
 **Course**: Practical Machine Learning and Deep Learning, 3rd year Bachelor degree 
