@@ -10,6 +10,56 @@ Magic Photo is a project with user-friendly application designed to enhance and 
 - **Focus Areas**: Faces, cities, pets, and nature for coloring; restoration focus is under discussion.
 
 
+## Repository Structure
+```text
+Image-Restoration-and-Coloring/
+├─ data_augmentation_methods/
+│  ├─ data/
+│  │  ├─ augmented_images/
+│  │  ├─ selected_images/
+│  │  ├─ train.csv
+│  │  └─ test.csv
+│  └─ testing.ipynb
+├─ models_testing/
+│  └─ restoration_superres/
+│     ├─ data/
+│     │  ├─ metrics_results.csv
+│     │  ├─ metrics_summary.csv
+│     │  ├─ restored_images/
+│     │  │  ├─ city/
+│     │  │  │  ├─ restored_restoration/
+│     │  │  │  └─ restored_superres/
+│     │  │  ├─ faces/
+│     │  │  │  ├─ restored_restoration/
+│     │  │  │  └─ restored_superres/
+│     │  │  └─ nature/
+│     │  │     ├─ restored_restoration/
+│     │  │     └─ restored_superres/
+│     │  └─ results_images/
+│     └─ restorationtest.ipynb
+├─ models_finetuning/
+│  └─ real-esrgan/
+│     ├─ real_esrgan_finetune.ipynb
+│     └─ realesrgan_finetune.yml
+├─ docs/
+│  ├─ D1.1/
+│  │  ├─ d11.tex
+│  │  └─ d11.pdf
+│  └─ D1.2/
+│     ├─ d12.tex
+│     └─ d12.pdf
+└─ README.md
+```
+
+## Folder Descriptions
+- **data_augmentation_methods/**: Implemented degradations and combined scenarios for training/evaluation datasets; includes sample CSV splits and notebook for testing methods.
+- **models_testing/**: Baseline evaluation of restoration and super-resolution models (Real-ESRGAN, GFPGAN) with metrics and visual results.
+- **models_finetuning/**: Notebooks/configs to fine-tune pretrained models (e.g., Real-ESRGAN) for our data and tasks.
+- **docs/**: Course deliverables and progress reports.
+  - D1.1: Initial project scope, existing solutions, dataset choices, and success criteria.
+  - D1.2: Dataset EDA, augmentation techniques, and baseline testing results.
+
+
 
 
 
