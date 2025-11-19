@@ -1,0 +1,9 @@
+torch
+torchvision
+numpy
+Pillow
+scikit-image
+imageio
+pytorch-lightning
+matplotlib
+torchsummary
