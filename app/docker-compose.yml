@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  colorizer:
+    build: ./services/colorizer
+    container_name: colorizer
+    restart: unless-stopped
+    volumes:
+      - "./pix2pix_colorizer:/app/pix2pix"
+      - ./weights:/app/weights
+    environment:
+      - GEN_WEIGHTS_PATH=/app/weights
+    ports:
+      - "8001:8001"
+
+  real_esrgan:
+    build: ./services/real_esrgan
+    container_name: real_esrgan
+    restart: unless-stopped
+    volumes:
+      - ./real-esrgan:/app/real_esrgan
+      - ./weights:/app/weights
+    environment:
+      - REAL_WEIGHTS_PATH=/app/weights
+    ports:
+      - "8002:8002"
+
+  telegram-bot:
+    build: ./bot
+    container_name: telegram_bot
+    restart: unless-stopped
+    depends_on:
+      - colorizer
+      - real_esrgan
+      - monitoring
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_CHAT_ID=${ADMIN_CHAT_ID}
+      - COLORIZER_URL=http://colorizer:8001/infer
+      - REAL_ESRGAN_URL=http://real_esrgan:8002/infer
+      - ALERT_DURATION=10
+      - ALERT_CPU=80
+    volumes:
+      - ./bot/data:/app/data
+    ports:
+      - "8080:8080"
+
+  monitoring:
+    build: ./services/monitoring
+    container_name: monitoring
+    restart: unless-stopped
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_CHAT_ID=${ADMIN_CHAT_ID}
+      - COLORIZER_METRICS=http://colorizer:8001/metrics
+      - REAL_METRICS=http://real_esrgan:8002/metrics
+      - SCRAPE_INTERVAL=10
+    depends_on:
+      - colorizer
+      - real_esrgan

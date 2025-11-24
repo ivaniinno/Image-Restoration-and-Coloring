@@ -1,0 +1,4 @@
+requests
+prometheus-client
+python-dotenv
+psutil
