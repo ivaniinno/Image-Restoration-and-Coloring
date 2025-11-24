@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+torch
+torchvision
+pytorch-lightning
+matplotlib
+torchsummary
+Pillow
+numpy
+imageio
+psutil
+prometheus-client
+scikit-image
+python-multipart

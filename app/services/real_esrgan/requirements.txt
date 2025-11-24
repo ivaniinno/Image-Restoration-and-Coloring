@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+torch>=1.7
+torchvision>=0.8.0
+tqdm
+huggingface-hub
+Pillow
+numpy==1.26.4
+psutil
+opencv-python-headless
+prometheus-client
+python-multipart
+python-multipart

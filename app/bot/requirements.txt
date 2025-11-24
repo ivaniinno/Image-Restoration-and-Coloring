@@ -1,0 +1,7 @@
+aiogram==2.24
+requests
+python-dotenv
+matplotlib
+pillow
+apscheduler
+numpy
